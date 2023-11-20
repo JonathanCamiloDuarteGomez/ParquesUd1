@@ -1,0 +1,230 @@
+/*
+        //var prueba = false
+
+
+
+        // Obtén una referencia al botón
+        val btnJugador = findViewById<ImageButton>(R.id.playBtn)
+
+        // Obtiene la referencia de la base de datos
+        val database = FirebaseDatabase.getInstance()
+        val jugadoresRef = database.getReference("Jugadores")
+        val auxRef = database.getReference("aux")
+
+
+        // Configura un oyente de clic para el botón
+        btnJugador.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                // Recupera el valor actual de aux desde Firebase
+                auxRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        var aux: Int = dataSnapshot.getValue(Int::class.java) ?: 0
+
+                        Log.d("TAG", "Valor actual de aux: $aux")
+
+                        // Realiza las operaciones según el valor de aux
+                        when (aux) {
+                            1 -> {
+                                // Código para el primer jugador (Jugador1)
+                                val jugador1Ref = jugadoresRef.child("Jugador1")
+
+                                jugador1Ref.addListenerForSingleValueEvent(object : ValueEventListener {
+                                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                        val jugador1 = dataSnapshot.getValue(Jugador::class.java)
+
+                                        jugador1?.let {
+                                            it.posicionAvanzar = 30
+                                            if(btnJugador.isEnabled==false && it.turnoActual == false && aux == 1){
+                                                btnJugador.isEnabled=true
+                                            }
+
+                                            if (it.turnoActual == true &&  btnJugador.isEnabled==true && aux == 1) {
+                                                it.turnoActual = false
+                                                aux++
+                                                auxRef.setValue(aux)
+                                                btnJugador.isEnabled=it.turnoActual
+                                            } else if (it.turnoActual == false && aux == 1) {
+                                                btnJugador.isEnabled=false
+                                                it.turnoActual = true
+                                                aux++
+                                                auxRef.setValue(aux)
+
+                                            } else {
+                                                Log.d("ERROR", "onDataChange: ERrorrr 1")
+                                            }
+
+                                            jugador1Ref.setValue(it)
+                                        }
+                                    }
+
+                                    override fun onCancelled(databaseError: DatabaseError) {
+                                        println("Error al leer los datos: ${databaseError.toException()}")
+                                    }
+                                })
+                            }
+                            2 -> {
+                                // Código para el segundo jugador (Jugador2)
+                                val jugador2Ref = jugadoresRef.child("Jugador2")
+
+                                jugador2Ref.addListenerForSingleValueEvent(object : ValueEventListener {
+                                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                        val jugador2 = dataSnapshot.getValue(Jugador::class.java)
+
+                                        jugador2?.let {
+                                            if(btnJugador.isEnabled==false && it.turnoActual == false && aux == 2){
+                                                btnJugador.isEnabled=true
+                                            }
+                                            if (it.turnoActual == true &&  btnJugador.isEnabled==true && aux == 2) {
+                                                it.posicionAvanzar = 20
+                                                it.turnoActual = false
+                                                aux = 1 // Reinicia a 1 para el próximo turno del Jugador1
+                                                auxRef.setValue(1)
+                                                btnJugador.isEnabled=it.turnoActual
+                                            } else if (it.turnoActual == false && aux == 2) {
+                                                btnJugador.isEnabled=false
+                                                it.turnoActual = true
+                                                aux = 1 // Reinicia a 1 para el próximo turno del Jugador1
+                                                auxRef.setValue(1)
+                                            } else {
+                                                Log.d("ERROR", "onDataChange: Error en Jugador2")
+                                            }
+
+                                            jugador2Ref.setValue(it)
+                                        }
+                                    }
+
+                                    override fun onCancelled(databaseError: DatabaseError) {
+                                        println("Error al leer los datos: ${databaseError.toException()}")
+                                    }
+                                })
+                            }
+                        }
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {
+                        println("Error al leer el valor de aux: ${databaseError.toException()}")
+                    }
+                })
+            }
+        })*/
+
+
+
+        /**********************
+
+
+
+
+        15---*-*-*-*-*-
+
+
+
+// Obtiene la referencia de la base de datos
+        val database = FirebaseDatabase.getInstance()
+        val jugadoresRef = database.getReference("Jugadores")
+        val auxRef = database.getReference("aux")
+        val currentUserID = FirebaseAuth.getInstance().currentUser?.uid
+        var cicloFalse = 0
+
+// Configura un oyente de clic para el botón
+        btnJugador.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View) {
+                // Recupera el valor actual de aux desde Firebase
+                auxRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        var aux: Int = dataSnapshot.getValue(Int::class.java) ?: 0
+
+                        Log.d("TAG", "Valor actual de aux: $aux")
+
+                        // Realiza las operaciones según el valor de aux
+                        when (aux) {
+                            1 -> {
+                                // Código para el primer jugador (Jugador1)
+                                val jugador1Ref = jugadoresRef.child("Jugador1")
+
+                                jugador1Ref.addListenerForSingleValueEvent(object : ValueEventListener {
+                                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                        val jugador1 = dataSnapshot.getValue(Jugador::class.java)
+
+                                        jugador1?.let {
+                                           // it.posicionAvanzar = 30
+
+                                            if (it.turnoActual && currentUserID == "7HWdptdeO2cd2zFp7ptBGyFIFBr2") {
+                                                // Habilitar el botón para Jugador1
+                                                //btnJugador.isEnabled = true
+                                                it.turnoActual = false
+                                                aux++
+                                                auxRef.setValue(aux)
+                                            } else if(!it.turnoActual && currentUserID == "7HWdptdeO2cd2zFp7ptBGyFIFBr2" ) {
+                                                // Si no es su turno o no es el jugador 1, deshabilitar el botón
+                                                //btnJugador.isEnabled = false
+                                                Log.d("TAG", "onDataChange: Des habilitado el btn play 1")
+                                                it.turnoActual = true
+                                                aux++
+                                                auxRef.setValue(aux)
+                                            }
+                                            jugador1Ref.setValue(it)
+                                            // Resto del código y las actualizaciones en la base de datos...
+                                        }
+                                    }
+
+                                    override fun onCancelled(databaseError: DatabaseError) {
+                                        println("Error al leer los datos: ${databaseError.toException()}")
+                                    }
+                                })
+                            }
+                            2 -> {
+                                // Código para el primer jugador (Jugador1)
+                                val jugador2Ref = jugadoresRef.child("Jugador2")
+
+                                jugador2Ref.addListenerForSingleValueEvent(object : ValueEventListener {
+                                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                        val jugador2 = dataSnapshot.getValue(Jugador::class.java)
+
+                                        jugador2?.let {
+
+
+                                            if (it.turnoActual && currentUserID == "BGALYWhLWmU83KskFWwBfwGwuGc2") {
+                                                // Habilitar el botón para Jugador1
+                                                //btnJugador.isEnabled = true
+                                                it.turnoActual = false
+                                                aux = 1 // Reinicia a 1 para el próximo turno del Jugador1
+                                                auxRef.setValue(1)
+                                                Log.d("TAG", "onDataChange: Dos 1")
+                                            } else if(!it.turnoActual && currentUserID == "BGALYWhLWmU83KskFWwBfwGwuGc2" ) {
+                                                // Si no es su turno o no es el jugador 1, deshabilitar el botón
+                                               // btnJugador.isEnabled = false
+                                                it.turnoActual = true
+                                                aux = 1 // Reinicia a 1 para el próximo turno del Jugador1
+                                                auxRef.setValue(1)
+                                                cicloFalse ++
+                                                Log.d("TAG", "onDataChange: Dos 222")
+                                                /*if(cicloFalse==2){
+                                                    btnJugador.isEnabled = true
+                                                    cicloFalse = 0
+                                                    Log.d("TAG", "onDataChange:  habilitado el btn play 2")
+                                                }*/
+                                            }
+                                            jugador2Ref.setValue(it)
+                                            // Resto del código y las actualizaciones en la base de datos...
+                                        }
+
+                                    }
+
+                                    override fun onCancelled(databaseError: DatabaseError) {
+                                        println("Error al leer los datos: ${databaseError.toException()}")
+                                    }
+                                })
+                                // Código para el segundo jugador (Jugador2)
+                                // Similar al caso del Jugador1, pero con lógica para Jugador2
+                                // ...
+                            }
+                        }
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {
+                        println("Error al leer el valor de aux: ${databaseError.toException()}")
+                    }
+                })
+            }
+        })

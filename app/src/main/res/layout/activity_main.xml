@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--Cuadrante1-->
+
+    <!--Fila1-->
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="420dp"
+        android:layout_height="420dp"
+        android:layout_gravity="fill"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fondo_parques"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.276" />
+
+    <!--Columna1-->
+
+    <LinearLayout
+        android:id="@+id/partePlay"
+        android:layout_width="403dp"
+        android:layout_height="77dp"
+        android:layout_row="1"
+        android:layout_column="4"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="48dp"
+
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="4dp">
+
+
+        <ImageButton
+            android:id="@+id/playBtn"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/circle_button"
+            android:contentDescription="Play Button"
+            android:onClick="jugador"
+            android:src="@drawable/play" />
+
+        <ImageView
+            android:id="@+id/dado1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            app:srcCompat="@drawable/dado" />
+
+        <ImageView
+            android:id="@+id/dado2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+
+            app:srcCompat="@drawable/dado" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="244dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2">
+        <!--MiniColumna1-->
+        <include
+            android:id="@+id/minicolumna1"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+        <!-- MiniColumna2 -->
+        <include
+            android:id="@+id/minicolumna2"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+        <!-- MiniColumna3 -->
+        <include
+            android:id="@+id/minicolumna3"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+        <!-- MiniColumna4 -->
+        <include
+            android:id="@+id/minicolumna4"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+        <!-- MiniColumna5 -->
+        <include
+            android:id="@+id/minicolumna5"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+        <!-- MiniColumna6 -->
+        <include
+            android:id="@+id/minicolumna6"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+        <!-- MiniColumna7 -->
+        <include
+            android:id="@+id/minicolumna7"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+        <!-- MiniColumna8 -->
+        <include
+            android:id="@+id/minicolumna8"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+        <!-- MiniColumna9 -->
+        <include
+            android:id="@+id/minicolumna9"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+        <!-- MiniColumna10 -->
+        <include
+            android:id="@+id/minicolumna10"
+            layout="@layout/mini_columna1"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="64dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="108dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <!--MiniFila11-->
+        <include
+            android:id="@+id/minifila11"
+            layout="@layout/mini_fila1"
+            android:visibility="invisible"
+            />
+        <!--MiniFila12-->
+        <include
+            android:id="@+id/minifila12"
+            layout="@layout/mini_fila1"
+            android:visibility="invisible"
+            />
+        <!--MiniFila13-->
+        <include
+            android:id="@+id/minifila13"
+            layout="@layout/mini_fila1"
+            android:visibility="invisible"
+            />
+        <!--MiniFila14-->
+        <include
+            android:id="@+id/minifila14"
+            layout="@layout/mini_fila1"
+            android:visibility="invisible"
+            />
+        <!--MiniFila15-->
+        <include
+            android:id="@+id/minifila15"
+            layout="@layout/mini_fila1"
+            android:visibility="invisible"
+            />
+        <!--MiniFila16-->
+        <include
+            android:id="@+id/minifila16"
+            layout="@layout/mini_fila1"
+            android:visibility="invisible"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PARQUES"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="62dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/partePlay">
+
+        <TextView
+            android:id="@+id/txtVerJugador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:text="@string/txtverJugador1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="16sp"
+            android:typeface="serif" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

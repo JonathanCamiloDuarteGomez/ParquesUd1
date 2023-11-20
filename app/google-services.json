@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "26409621643",
+    "project_id": "parquesudv1",
+    "storage_bucket": "parquesudv1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26409621643:android:749db31a629baa8e86dc8e",
+        "android_client_info": {
+          "package_name": "com.example.parquesud1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3QXBvQKYWNqjgiGPgbZUXLgADL8W1JqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
